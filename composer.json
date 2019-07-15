@@ -1,0 +1,43 @@
+{
+    "name": "drupol/belgian-national-number-faker",
+    "type": "library",
+    "description": "Belgian national number faker generator using fzaninotto/faker.",
+    "keywords": [
+        "belgian national number",
+        "national number",
+        "national identification number",
+        "faker"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pol Dellaiera",
+            "email": "pol.dellaiera@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "drupol/php-conventions": "^1",
+        "drupol/phpspec-annotation": "^1",
+        "drupol/phpspec-code-coverage": "^4 || ^5",
+        "fzaninotto/faker": "^1.6",
+        "infection/infection": "^0.13.4",
+        "phpspec/phpspec": "^4 || ^5",
+        "phptaskman/changelog": "^1.0",
+        "scrutinizer/ocular": "^1"
+    },
+    "autoload": {
+        "psr-4": {
+            "drupol\\BelgianNationalNumberFaker\\": "src/"
+        }
+    },
+    "scripts": {
+        "apigen": "./vendor/bin/apigen generate src --destination build/docs",
+        "bench": "./vendor/bin/phpbench run --report=aggregate --store --precision=3",
+        "grumphp": "./vendor/bin/grumphp run",
+        "infection": "./vendor/bin/infection run -j 10",
+        "scrutinizer": "./vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml"
+    }
+}
