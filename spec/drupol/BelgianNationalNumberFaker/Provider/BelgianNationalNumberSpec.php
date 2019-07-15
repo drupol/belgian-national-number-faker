@@ -15,7 +15,7 @@ class BelgianNationalNumberSpec extends ObjectBehavior
         $this->beConstructedWith($generator);
 
         $this
-            ->nationalIdentificationNumber()
+            ->belgianNationalIdentificationNumber()
             ->shouldBeString();
     }
 

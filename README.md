@@ -23,6 +23,38 @@ Belgian national number generator using [fzaninotto/faker](https://github.com/fz
 
 ```composer require --dev drupol/belgian-national-number-faker```
 
+## Usage
+
+With regular PHP
+
+```php
+<?php
+
+declare(strict_types = 1);
+
+include 'vendor/autoload.php';
+
+use drupol\BelgianNationalNumberFaker\Provider\BelgianNationalNumber;
+
+$generator = new \Faker\Generator();
+
+$faker = new BelgianNationalNumber($generator);
+
+echo $faker->belgianNationalIdentificationNumber();
+```
+
+## Integration with Symfony
+
+Through [nelmio/alice-bundle](https://packagist.org/packages/nelmio/alice) and [hautelook/alice-bundle](https://packagist.org/packages/hautelook/alice-bundle):
+
+Edit the file `services.yml` and add:
+
+```yaml
+services:
+  drupol\BelgianNationalNumberFaker\Provider\BelgianNationalNumber:
+    tags: [ { name: nelmio_alice.faker.provider } ]
+```
+
 ## Code quality, tests and benchmarks
 
 Every time changes are introduced into the library, [Travis CI](https://travis-ci.org/drupol/belgian-national-number-faker/builds) run the tests and the benchmarks.

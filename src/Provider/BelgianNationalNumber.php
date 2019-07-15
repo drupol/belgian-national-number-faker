@@ -19,7 +19,7 @@ class BelgianNationalNumber extends Base
      *
      * @see https://en.wikipedia.org/wiki/National_identification_number
      */
-    public function nationalIdentificationNumber(): string
+    public function belgianNationalIdentificationNumber(): string
     {
         do {
             $probe = \mb_substr(DateTime::date('Ymd'), 2) . static::randomNumber(5);
