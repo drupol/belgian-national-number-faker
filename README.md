@@ -35,17 +35,16 @@ declare(strict_types = 1);
 include 'vendor/autoload.php';
 
 use drupol\BelgianNationalNumberFaker\Provider\BelgianNationalNumber;
+use Faker\Generator;
 
-$generator = new \Faker\Generator();
-
-$faker = new BelgianNationalNumber($generator);
+$faker = new BelgianNationalNumber(new Generator());
 
 echo $faker->belgianNationalIdentificationNumber();
 ```
 
 ## Integration with Symfony
 
-Through [nelmio/alice-bundle](https://packagist.org/packages/nelmio/alice) and [hautelook/alice-bundle](https://packagist.org/packages/hautelook/alice-bundle):
+Through [nelmio/alice](https://packagist.org/packages/nelmio/alice) and [hautelook/alice-bundle](https://packagist.org/packages/hautelook/alice-bundle):
 
 Edit the file `services.yml` and add:
 
