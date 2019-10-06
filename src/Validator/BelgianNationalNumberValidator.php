@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace drupol\BelgianNationalNumberFaker\Validator;
 
@@ -79,12 +79,13 @@ final class BelgianNationalNumberValidator
             '20' . $birthDatePart :
             '19' . $birthDatePart;
 
-        if (!\checkdate(
+        $checkdate = \checkdate(
             (int) \mb_substr($birthDate, 4, 2),
             (int) \mb_substr($birthDate, 6, 2),
             (int) \mb_substr($birthDate, 0, 4)
-        )
-        ) {
+        );
+
+        if (!$checkdate) {
             return false;
         }
 
