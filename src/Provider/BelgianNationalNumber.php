@@ -23,7 +23,7 @@ final class BelgianNationalNumber extends Base
     public function belgianNationalIdentificationNumber(): string
     {
         do {
-            $probe = \mb_substr(DateTime::date('Ymd'), 2) . static::randomNumber(5, true);
+            $probe = mb_substr(DateTime::date('Ymd'), 2) . self::randomNumber(5, true);
         } while (false === BelgianNationalNumberValidator::isValid($probe));
 
         return $probe;

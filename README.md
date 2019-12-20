@@ -1,7 +1,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/drupol/belgian-national-number-faker.svg?style=flat-square)](https://packagist.org/packages/drupol/belgian-national-number-faker)
  [![GitHub stars](https://img.shields.io/github/stars/drupol/belgian-national-number-faker.svg?style=flat-square)](https://packagist.org/packages/drupol/belgian-national-number-faker)
  [![Total Downloads](https://img.shields.io/packagist/dt/drupol/belgian-national-number-faker.svg?style=flat-square)](https://packagist.org/packages/drupol/belgian-national-number-faker)
- [![Build Status](https://img.shields.io/travis/drupol/belgian-national-number-faker/master.svg?style=flat-square)](https://travis-ci.org/drupol/belgian-national-number-faker)
+ [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/drupol/belgian-national-number-faker/Continuous%20Integration?style=flat-square)](https://github.com/drupol/belgian-national-number-faker/actions)
  [![Scrutinizer code quality](https://img.shields.io/scrutinizer/quality/g/drupol/belgian-national-number-faker/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/belgian-national-number-faker/?branch=master)
  [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/drupol/belgian-national-number-faker/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/drupol/belgian-national-number-faker/?branch=master)
  [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/drupol/belgian-national-number-faker/master)](https://stryker-mutator.github.io)
@@ -56,7 +56,7 @@ services:
 
 ## Code quality, tests and benchmarks
 
-Every time changes are introduced into the library, [Travis CI](https://travis-ci.org/drupol/belgian-national-number-faker/builds) run the tests and the benchmarks.
+Every time changes are introduced into the library, [Github](https://github.com/drupol/belgian-national-number-faker/actions) run the tests and the benchmarks.
 
 The library has tests written with [PHPSpec](http://www.phpspec.net/).
 Feel free to check them out in the `spec` directory. Run `composer phpspec` to trigger the tests.

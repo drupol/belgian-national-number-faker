@@ -19,14 +19,13 @@
         "php": ">= 7.1"
     },
     "require-dev": {
-        "drupol/php-conventions": "^1",
-        "friends-of-phpspec/phpspec-code-coverage": "^4 || ^5",
+        "drupol/php-conventions": "^1.6.8",
+        "friends-of-phpspec/phpspec-code-coverage": "^4",
         "fzaninotto/faker": "^1.6",
-        "infection/infection": "^0.13.4",
-        "phpspec/phpspec": "^4 || ^5",
-        "phpstan/phpstan-strict-rules": "^0.11.1",
-        "phptaskman/changelog": "^1",
-        "scrutinizer/ocular": "^1"
+        "infection/infection": "^0.13.6",
+        "phpspec/phpspec": "^5.1.2 || ^6.1",
+        "phpstan/phpstan-strict-rules": "^0.12",
+        "phptaskman/changelog": "^1"
     },
     "autoload": {
         "psr-4": {
@@ -34,10 +33,7 @@
         }
     },
     "scripts": {
-        "apigen": "./vendor/bin/apigen generate src --destination build/docs",
-        "bench": "./vendor/bin/phpbench run --report=aggregate --store --precision=3",
         "grumphp": "./vendor/bin/grumphp run",
-        "infection": "./vendor/bin/infection run -j 10",
-        "scrutinizer": "./vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml"
+        "infection": "./vendor/bin/infection run -j 10"
     }
 }

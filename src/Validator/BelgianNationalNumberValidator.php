@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace drupol\BelgianNationalNumberFaker\Validator;
 
+use const FILTER_SANITIZE_NUMBER_INT;
+
 /**
  * Class BelgianNationalNumberValidator.
  */
@@ -20,7 +22,7 @@ final class BelgianNationalNumberValidator
      */
     public static function isValid(string $id): bool
     {
-        return static::isValidNationalNumber($id);
+        return self::isValidNationalNumber($id);
     }
 
     /**
@@ -34,7 +36,7 @@ final class BelgianNationalNumberValidator
      */
     private static function isValidNationalNumber(string $national_number): bool
     {
-        $national_number = \filter_var($national_number, \FILTER_SANITIZE_NUMBER_INT);
+        $national_number = filter_var($national_number, FILTER_SANITIZE_NUMBER_INT);
 
         if (false === $national_number) {
             return false;
@@ -43,23 +45,23 @@ final class BelgianNationalNumberValidator
         $allowedCharactersPattern = '/^[0-9\\ \\-]+$/';
         $nonNumericPattern = '/\\D/';
 
-        if (1 !== \preg_match($allowedCharactersPattern, $national_number)) {
+        if (1 !== preg_match($allowedCharactersPattern, $national_number)) {
             return false;
         }
 
-        $national_number = \preg_replace($nonNumericPattern, '', $national_number);
+        $national_number = preg_replace($nonNumericPattern, '', $national_number);
 
         if (null === $national_number) {
             return false;
         }
 
-        if (11 !== \mb_strlen($national_number)) {
+        if (11 !== mb_strlen($national_number)) {
             return false;
         }
 
-        $birthDatePart = (int) \mb_substr($national_number, 0, 6);
-        $counterPart = (int) \mb_substr($national_number, 6, 3);
-        $controlPart = (int) \mb_substr($national_number, 9, 2);
+        $birthDatePart = (int) mb_substr($national_number, 0, 6);
+        $counterPart = (int) mb_substr($national_number, 6, 3);
+        $controlPart = (int) mb_substr($national_number, 9, 2);
 
         // 1. CONTROL NUMBER CHECKING
         $born2kOrLater = false;
@@ -79,13 +81,13 @@ final class BelgianNationalNumberValidator
             '20' . $birthDatePart :
             '19' . $birthDatePart;
 
-        $checkdate = \checkdate(
-            (int) \mb_substr($birthDate, 4, 2),
-            (int) \mb_substr($birthDate, 6, 2),
-            (int) \mb_substr($birthDate, 0, 4)
+        $checkdate = checkdate(
+            (int) mb_substr($birthDate, 4, 2),
+            (int) mb_substr($birthDate, 6, 2),
+            (int) mb_substr($birthDate, 0, 4)
         );
 
-        if (!$checkdate) {
+        if (false === $checkdate) {
             return false;
         }
 
